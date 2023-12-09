@@ -23,6 +23,7 @@ async function main() {
   //     },
   //   },
   // });
+  // console.log(usersWithRoles);
   //adds a session
   // const addedSession = await sessionService.addSession({
   //   users: ["135467ec-af8a-434a-8d63-ed17b0c08de7"],
