@@ -8,6 +8,15 @@ datasource db {
 }
 
 model Role {
-  id   String @id @default(uuid())
-  name String @unique
+  id     String  @id @default(uuid())
+  name   String  @unique
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String?
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  username String
+  roles    Role[]
 }

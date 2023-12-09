@@ -1,10 +1,7 @@
 import prisma from "./prisma/client";
 import roleService from "./services/RoleService";
 
-async function main() {
-  const role = await roleService.addRole("ADMIN");
-  console.log(role);
-}
+async function main() {}
 
 main()
   .catch((e) => {
