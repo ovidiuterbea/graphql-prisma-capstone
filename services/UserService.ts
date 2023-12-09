@@ -1,4 +1,4 @@
-import { AddUserInput } from "../types/UserTypes";
+import { AddUserInput, EditUserInput } from "../types/UserTypes";
 import prisma from "../prisma/client";
 
 const addUser = async (user: AddUserInput) => {
@@ -11,4 +11,35 @@ const addUser = async (user: AddUserInput) => {
   return addedUser;
 };
 
-export default { addUser };
+const editUser = async (userId: string, payload: EditUserInput) => {
+  let editedUser;
+  if (payload.roles) {
+    const roles = payload.roles.map((role) => ({
+      id: role,
+    }));
+    console.log(roles);
+    editedUser = await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        username: payload.username,
+        roles: {
+          connect: roles,
+        },
+      },
+    });
+  } else {
+    editedUser = await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        username: payload.username,
+      },
+    });
+  }
+  return editedUser;
+};
+
+export default { addUser, editUser };

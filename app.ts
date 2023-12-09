@@ -3,13 +3,25 @@ import roleService from "./services/RoleService";
 import userService from "./services/UserService";
 
 async function main() {
-  const user = await userService.addUser({
-    username: "ovi222",
-    email: "ovi222@gmail.com",
-  });
-  console.log(user);
-  const users = await prisma.user.findMany();
-  console.log(users);
+  //give user admin access
+  const user = await userService.editUser(
+    "c5b6bfe0-6d0d-42e1-a772-99d7585f937a",
+    {
+      username: "oviEdited",
+      roles: ["555bc25d-4c57-4882-b0b6-f2750a2aeefb"],
+    }
+  );
+  // const usersWithRoles = await prisma.user.findMany({
+  //   include: {
+  //     roles: {
+  //       select: {
+  //         id: true,
+  //         name: true,
+  //       },
+  //     },
+  //   },
+  // });
+  // console.log(usersWithRoles);
 }
 
 main()
