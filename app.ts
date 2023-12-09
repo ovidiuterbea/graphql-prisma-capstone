@@ -33,6 +33,11 @@ async function main() {
   //   "538000d7-18f0-4ddf-a441-bb2a1c376233"
   // );
   // console.log(deletedSession);
+  //getSessionByIdWithoutUsers
+  // const session = await sessionService.getSessionByIdWithUsers(
+  //   "1a489c59-6369-4422-87bc-d389de9765a9"
+  // );
+  // console.log(session);
 }
 
 main()
