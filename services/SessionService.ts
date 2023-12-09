@@ -37,4 +37,25 @@ const getSessionByIdWithUsers = async (sessionId: string) => {
   return session;
 };
 
-export default { addSession, deleteSession, getSessionByIdWithUsers };
+const getSessionById = async (sessionId: string) => {
+  const session = await prisma.session.findFirst({
+    where: {
+      id: sessionId,
+    },
+    include: {
+      users: {
+        include: {
+          roles: true,
+        },
+      },
+    },
+  });
+  return session;
+};
+
+export default {
+  addSession,
+  deleteSession,
+  getSessionByIdWithUsers,
+  getSessionById,
+};

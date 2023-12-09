@@ -39,6 +39,11 @@ async function main() {
   //   "1a489c59-6369-4422-87bc-d389de9765a9"
   // );
   // console.log(session);
+  //getSessionById
+  const session = await sessionService.getSessionById(
+    "1a489c59-6369-4422-87bc-d389de9765a9"
+  );
+  console.log(session);
 }
 
 main()
