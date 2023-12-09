@@ -14,4 +14,16 @@ const getRoles = async () => {
   return roles;
 };
 
-export default { addRole, getRoles };
+const editRole = async (roleId: string, name: string) => {
+  const updatedRole = prisma.role.update({
+    data: {
+      name,
+    },
+    where: {
+      id: roleId,
+    },
+  });
+  return updatedRole;
+};
+
+export default { addRole, getRoles, editRole };
