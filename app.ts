@@ -4,13 +4,14 @@ import userService from "./services/UserService";
 
 async function main() {
   //give user admin access
-  const user = await userService.editUser(
-    "c5b6bfe0-6d0d-42e1-a772-99d7585f937a",
-    {
-      username: "oviEdited",
-      roles: ["555bc25d-4c57-4882-b0b6-f2750a2aeefb"],
-    }
-  );
+  // const user = await userService.editUser(
+  //   "c5b6bfe0-6d0d-42e1-a772-99d7585f937a",
+  //   {
+  //     username: "oviEdited",
+  //     roles: ["555bc25d-4c57-4882-b0b6-f2750a2aeefb"],
+  //   }
+  // );
+  // get users
   // const usersWithRoles = await prisma.user.findMany({
   //   include: {
   //     roles: {
@@ -21,7 +22,6 @@ async function main() {
   //     },
   //   },
   // });
-  // console.log(usersWithRoles);
 }
 
 main()
