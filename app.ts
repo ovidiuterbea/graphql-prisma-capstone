@@ -1,6 +1,7 @@
 import prisma from "./prisma/client";
 import roleService from "./services/RoleService";
 import userService from "./services/UserService";
+import sessionService from "./services/SessionService";
 
 async function main() {
   //give user admin access
@@ -22,6 +23,13 @@ async function main() {
   //     },
   //   },
   // });
+  const addedSession = await sessionService.addSession({
+    users: [
+      "135467ec-af8a-434a-8d63-ed17b0c08de7",
+      "c5b6bfe0-6d0d-42e1-a772-99d7585f937a",
+    ],
+  });
+  console.log(addedSession);
 }
 
 main()
