@@ -26,4 +26,13 @@ const editRole = async (roleId: string, name: string) => {
   return updatedRole;
 };
 
-export default { addRole, getRoles, editRole };
+const deleteRole = async (roleId: string) => {
+  const deletedRole = prisma.role.delete({
+    where: {
+      id: roleId,
+    },
+  });
+  return deletedRole;
+};
+
+export default { addRole, getRoles, editRole, deleteRole };
