@@ -23,13 +23,16 @@ async function main() {
   //     },
   //   },
   // });
-  const addedSession = await sessionService.addSession({
-    users: [
-      "135467ec-af8a-434a-8d63-ed17b0c08de7",
-      "c5b6bfe0-6d0d-42e1-a772-99d7585f937a",
-    ],
-  });
-  console.log(addedSession);
+  //adds a session
+  // const addedSession = await sessionService.addSession({
+  //   users: ["135467ec-af8a-434a-8d63-ed17b0c08de7"],
+  // });
+  // console.log(addedSession);
+  //delete session
+  // const deletedSession = await sessionService.deleteSession(
+  //   "538000d7-18f0-4ddf-a441-bb2a1c376233"
+  // );
+  // console.log(deletedSession);
 }
 
 main()

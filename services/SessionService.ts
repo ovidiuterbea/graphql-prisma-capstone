@@ -15,4 +15,13 @@ const addSession = (usersInput: AddSessionInput) => {
   return addedSession;
 };
 
-export default { addSession };
+const deleteSession = async (sessionId: string) => {
+  const deletedSession = await prisma.session.delete({
+    where: {
+      id: sessionId,
+    },
+  });
+  return deletedSession;
+};
+
+export default { addSession, deleteSession };
