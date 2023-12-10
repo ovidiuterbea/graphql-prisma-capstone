@@ -22,7 +22,6 @@ const editUser = async (userId: string, payload: EditUserInput) => {
     const roles = payload.roles.map((role) => ({
       id: role,
     }));
-    console.log(roles);
     editedUser = await prisma.user.update({
       where: {
         id: userId,
