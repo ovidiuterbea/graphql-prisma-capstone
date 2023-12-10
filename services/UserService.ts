@@ -2,7 +2,12 @@ import { AddUserInput, EditUserInput } from "../types/UserTypes";
 import prisma from "../prisma/client";
 
 const getUsers = async () => {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({
+    include: {
+      roles: true,
+      session: true,
+    },
+  });
   return users;
 };
 
