@@ -1,6 +1,11 @@
 import { AddUserInput, EditUserInput } from "../types/UserTypes";
 import prisma from "../prisma/client";
 
+const getUsers = async () => {
+  const users = await prisma.user.findMany();
+  return users;
+};
+
 const addUser = async (user: AddUserInput) => {
   const addedUser = await prisma.user.create({
     data: {
@@ -42,4 +47,4 @@ const editUser = async (userId: string, payload: EditUserInput) => {
   return editedUser;
 };
 
-export default { addUser, editUser };
+export default { addUser, editUser, getUsers };

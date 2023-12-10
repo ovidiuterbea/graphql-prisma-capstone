@@ -1,6 +1,11 @@
 import { AddSessionInput } from "../types/ServicesTypes";
 import prisma from "../prisma/client";
 
+const getSessions = async () => {
+  const sessions = await prisma.session.findMany();
+  return sessions;
+};
+
 const addSession = (usersInput: AddSessionInput) => {
   const users = usersInput.users.map((user) => ({
     id: user,
@@ -54,6 +59,7 @@ const getSessionById = async (sessionId: string) => {
 };
 
 export default {
+  getSessions,
   addSession,
   deleteSession,
   getSessionByIdWithUsers,
