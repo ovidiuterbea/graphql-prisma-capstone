@@ -2,8 +2,6 @@ import { DateTimeResolver } from "graphql-scalars";
 import userService from "../services/UserService";
 import roleService from "../services/RoleService";
 import sessionService from "../services/SessionService";
-import { EditUserInput } from "../types/UserTypes";
-import { User } from "@prisma/client";
 
 const resolvers = {
   Query: {
