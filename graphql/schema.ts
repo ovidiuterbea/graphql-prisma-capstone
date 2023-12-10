@@ -25,5 +25,16 @@ type Query {
     sessions: [Session]
 }
 
+type Mutation {
+  addRole(name: String!) : Role
+  editRole(editRoleInput: EditRoleInput!) : Role
+  deleteRole(id: ID!) : Role
+}
+
+input EditRoleInput {
+  id: ID!
+  name: String!
+}
+
 scalar DateTime
 `;
