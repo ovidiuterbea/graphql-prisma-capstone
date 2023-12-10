@@ -1,8 +1,3 @@
-import prisma from "./prisma/client";
-import roleService from "./services/RoleService";
-import userService from "./services/UserService";
-import sessionService from "./services/SessionService";
-
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./graphql/schema";
