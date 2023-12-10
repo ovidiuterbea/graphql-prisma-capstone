@@ -2,6 +2,8 @@ import { DateTimeResolver } from "graphql-scalars";
 import userService from "../services/UserService";
 import roleService from "../services/RoleService";
 import sessionService from "../services/SessionService";
+import { EditUserInput } from "../types/UserTypes";
+import { User } from "@prisma/client";
 
 const resolvers = {
   Query: {
@@ -30,6 +32,12 @@ const resolvers = {
     },
     deleteRole(_: undefined, args: { id: string }) {
       return roleService.deleteRole(args.id);
+    },
+    editUser(
+      _: undefined,
+      args: { id: string; payload: { username: string; roles: string[] } }
+    ) {
+      return userService.editUser(args.id, args.payload);
     },
   },
   DateTime: DateTimeResolver,

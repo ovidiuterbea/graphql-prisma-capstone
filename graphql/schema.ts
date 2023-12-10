@@ -29,11 +29,17 @@ type Mutation {
   addRole(name: String!) : Role
   editRole(editRoleInput: EditRoleInput!) : Role
   deleteRole(id: ID!) : Role
+  editUser(id: ID!, payload: EditUserInput!): User
 }
 
 input EditRoleInput {
   id: ID!
   name: String!
+}
+
+input EditUserInput{
+  username: String!
+  roles: [ID]
 }
 
 scalar DateTime
