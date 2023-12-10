@@ -16,6 +16,12 @@ const resolvers = {
     sessions() {
       return sessionService.getSessions();
     },
+    getSessionWithoutUsers(_: undefined, args: { id: string }) {
+      return sessionService.getSessionByIdWithUsers(args.id);
+    },
+    getSessionWithUserAndRoles(_: undefined, args: { id: string }) {
+      return sessionService.getSessionById(args.id);
+    },
   },
   Mutation: {
     addRole(_: undefined, args: { name: string }) {
@@ -44,12 +50,6 @@ const resolvers = {
     },
     deleteSession(_: undefined, args: { id: string }) {
       return sessionService.deleteSession(args.id);
-    },
-    getSessionWithoutUsers(_: undefined, args: { id: string }) {
-      return sessionService.getSessionByIdWithUsers(args.id);
-    },
-    getSessionWithUserAndRoles(_: undefined, args: { id: string }) {
-      return sessionService.getSessionById(args.id);
     },
   },
   DateTime: DateTimeResolver,

@@ -23,6 +23,8 @@ type Query {
     users: [User]
     roles: [Role]
     sessions: [Session]
+    getSessionWithoutUsers(id: ID!): Session
+    getSessionWithUserAndRoles(id: ID!): Session
 }
 
 type Mutation {
@@ -32,8 +34,6 @@ type Mutation {
   editUser(id: ID!, payload: EditUserInput!): User
   addSessionWithUsers(users: [String!]!): Session
   deleteSession(id: ID!): Session
-  getSessionWithoutUsers(id: ID!): Session
-  getSessionWithUserAndRoles(id: ID!): Session
 }
 
 input EditRoleInput {
