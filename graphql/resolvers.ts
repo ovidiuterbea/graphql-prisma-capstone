@@ -39,6 +39,9 @@ const resolvers = {
     ) {
       return userService.editUser(args.id, args.payload);
     },
+    addSessionWithUsers(_: undefined, args: { users: string[] }) {
+      return sessionService.addSession(args.users);
+    },
   },
   DateTime: DateTimeResolver,
 };

@@ -1,4 +1,3 @@
-import { AddSessionInput } from "../types/ServicesTypes";
 import prisma from "../prisma/client";
 
 const getSessions = async () => {
@@ -6,8 +5,8 @@ const getSessions = async () => {
   return sessions;
 };
 
-const addSession = (usersInput: AddSessionInput) => {
-  const users = usersInput.users.map((user) => ({
+const addSession = (usersInput: string[]) => {
+  const users = usersInput.map((user) => ({
     id: user,
   }));
   const addedSession = prisma.session.create({
