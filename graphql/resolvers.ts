@@ -42,6 +42,9 @@ const resolvers = {
     addSessionWithUsers(_: undefined, args: { users: string[] }) {
       return sessionService.addSession(args.users);
     },
+    deleteSession(_: undefined, args: { id: string }) {
+      return sessionService.deleteSession(args.id);
+    },
   },
   DateTime: DateTimeResolver,
 };

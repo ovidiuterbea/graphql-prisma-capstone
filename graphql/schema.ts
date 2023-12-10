@@ -31,6 +31,7 @@ type Mutation {
   deleteRole(id: ID!) : Role
   editUser(id: ID!, payload: EditUserInput!): User
   addSessionWithUsers(users: [String!]!): Session
+  deleteSession(id: ID!): Session
 }
 
 input EditRoleInput {
